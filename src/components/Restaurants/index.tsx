@@ -1,53 +1,61 @@
-import { Link } from 'react-router-dom'
-
+import Button from '../Button'
 import Tag from '../Tag'
 
-import estrela from '../../assets/estrela.svg'
+import star from '../../assets/estrela.svg'
+
 import {
-  Descricao,
-  TituloContainer,
-  Titulo,
-  CardInfo,
-  Card,
+  RestaurantCard,
+  Image,
+  InfosTag,
   Infos,
-  ButtonInfo
+  Title,
+  Grade,
+  Description
 } from './styles'
+import { RestaurantType } from '../../pages/Home'
 
-type Props = {
-  title: string
-  description: string
-  avaliable: number
-  infos: string[]
-  image: string
-}
-
-const Restaurants = ({
-  title,
-  description,
-  infos,
-  image,
-  avaliable
-}: Props) => (
-  <Card>
-    <img src={image} alt={title} />
+const Restaurant = ({
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa
+}: RestaurantType) => (
+  <RestaurantCard>
+    <Image style={{ backgroundImage: `url(${capa})` }}>
+      <InfosTag className={'message'}>
+        {destacado ? (
+          <>
+            <Tag size="small">Destaque da semana</Tag>
+            <Tag size="small">{tipo}</Tag>
+          </>
+        ) : (
+          <Tag size="big">{tipo}</Tag>
+        )}
+      </InfosTag>
+    </Image>
     <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
+      <div>
+        <Title>{titulo}</Title>
+        <div>
+          <Grade>{avaliacao}</Grade>
+          <img src={star} alt="Estrela" />
+        </div>
+      </div>
+      <Description>{descricao}</Description>
+      <div>
+        <Button
+          title="Clique aqui para ver os pratos servidos pelo restaurante"
+          type="link"
+          to={`restaurant/${id}`}
+        >
+          Saiba mais
+        </Button>
+      </div>
     </Infos>
-    <CardInfo>
-      <TituloContainer>
-        <Titulo>{title}</Titulo>
-        <p>
-          {avaliable} <img src={estrela} />
-        </p>
-      </TituloContainer>
-      <Descricao>{description}</Descricao>
-      <ButtonInfo>
-        <Link to="/shopp">Saiba mais</Link>
-      </ButtonInfo>
-    </CardInfo>
-  </Card>
+  </RestaurantCard>
 )
 
-export default Restaurants
+export default Restaurant

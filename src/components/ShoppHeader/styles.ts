@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const ImagemFundo = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ export const ImagemFundo = styled.div`
   }
 
   a {
-    color: ${cores.vermelha};
+    color: ${colors.darkPink};
     text-decoration: none;
   }
 `

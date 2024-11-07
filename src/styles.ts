@@ -1,29 +1,34 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  bege: '#FFF8F2',
-  bege2: '#FFEBD9',
-  vermelha: '#E66767',
-  white: '#FFEBD9',
-  white2: '#fff'
+export const colors = {
+  darkPink: '#e66767d2',
+  pink: '#E66767',
+  lightPink: '#FFF8F2',
+  white: '#ffffff',
+  lightGray: '#FFEBD9'
 }
 
-export const GlobalCss = createGlobalStyle`
-  *{
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px'
+}
+
+export const GlobalCSS = createGlobalStyle`
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, sans-serif;
-  }
-
-  body {
-    background-color: ${cores.bege};
-    color: ${cores.vermelha};
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
   }
 
   .container {
     max-width: 1024px;
-    witdh: 100%;
+    width: 100%;
     margin: 0 auto;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 90%;
+    }
   }
 `

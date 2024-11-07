@@ -1,29 +1,34 @@
-import MoldelRestaurants from '../../models/MoldelRestaurants'
-import Restaurants from '../Restaurants'
-
-import { Container, List } from './styles'
+import Restaurant from '../Restaurants'
+import { List, RestaurantsSection } from './styles'
+import { RestaurantType } from '../../pages/Home'
 
 export type Props = {
-  restaurants: MoldelRestaurants[]
+  restaurants?: RestaurantType[]
 }
 
-const RestaurantsList = ({ restaurants }: Props) => (
-  <Container>
-    <div className="container">
-      <List>
-        {restaurants.map((res) => (
-          <Restaurants
-            key={res.id}
-            title={res.title}
-            description={res.description}
-            image={res.image}
-            avaliable={res.avaliable}
-            infos={res.infos}
-          />
-        ))}
-      </List>
-    </div>
-  </Container>
-)
+const RestaurantsList = ({ restaurants }: Props) => {
+  return (
+    <RestaurantsSection>
+      <div className="container">
+        {/* Lista de restaurantes */}
+        <List>
+          {restaurants?.map((restaurant) => (
+            <Restaurant
+              key={restaurant.id}
+              id={restaurant.id}
+              capa={restaurant.capa}
+              titulo={restaurant.titulo}
+              avaliacao={restaurant.avaliacao}
+              destacado={restaurant.destacado}
+              tipo={restaurant.tipo}
+              descricao={restaurant.descricao}
+              cardapio={restaurant.cardapio}
+            />
+          ))}
+        </List>
+      </div>
+    </RestaurantsSection>
+  )
+}
 
 export default RestaurantsList
