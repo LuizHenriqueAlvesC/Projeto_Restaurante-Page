@@ -11,7 +11,7 @@ import { colors } from '../../styles'
 export const StandardButton = styled.button`
   padding: 4px 0; // Define o espaçamento interno superior e inferior
   height: 24px; // Define a altura do botão
-  background-color: ${colors.pink}; // Define a cor de fundo do botão
+  background-color: ${colors.lightGray}; // Define a cor de fundo do botão
   color: ${colors.darkPink}; // Define a cor do texto do botão
   width: 100%; // Define a largura do botão para ocupar 100% do espaço disponível
   font-size: 14px; // Define o tamanho da fonte do texto do botão
@@ -34,12 +34,12 @@ export const LinkButton = styled(Link)`
   font-size: 14px; // Define o tamanho da fonte do texto do botão
   font-weight: bold; // Define o peso da fonte como negrito
   background-color: ${colors.darkPink}; // Define a cor de fundo do botão
-  color: ${colors.pink}; // Define a cor do texto do botão
+  color: ${colors.lightGray}; // Define a cor do texto do botão
   position: absolute; // Define a posição do botão como absoluta
   bottom: 8px; // Define a distância do botão em relação à parte inferior do elemento pai
   left: 8px; // Define a distância do botão em relação à parte esquerda do elemento pai
 
   &:hover {
-    background-color: ${colors.lightGray}; // Altera a cor de fundo ao passar o mouse sobre o botão
+    background-color: ${colors.pink}; // Altera a cor de fundo ao passar o mouse sobre o botão
   }
 `

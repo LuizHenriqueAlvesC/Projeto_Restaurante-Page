@@ -8,6 +8,7 @@ export const ImagemFundo = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: 900;
+  color: ${colors.darkPink};
 
   .container {
     width: 100%;
@@ -17,8 +18,8 @@ export const ImagemFundo = styled.div`
   }
 
   a {
-    color: ${colors.darkPink};
     text-decoration: none;
+    color: ${colors.darkPink};
   }
 `
 export const Logo = styled.img``

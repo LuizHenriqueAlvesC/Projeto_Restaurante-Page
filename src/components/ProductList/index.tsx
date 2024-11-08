@@ -8,26 +8,21 @@ export type Props = {
 }
 
 const ProductsList = ({ products }: Props) => {
-  console.log('Products:', products)
   return (
     <ProductsSection>
       <div className="container">
         <List>
-          {products.length > 0 ? (
-            products.map((product) => (
-              <Product
-                key={product.id}
-                id={product.id}
-                foto={product.foto}
-                nome={product.nome}
-                descricao={product.descricao}
-                preco={product.preco}
-                porcao={product.porcao}
-              />
-            ))
-          ) : (
-            <p>No products available</p>
-          )}
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              id={product.id}
+              foto={product.foto}
+              nome={product.nome}
+              descricao={product.descricao}
+              preco={product.preco}
+              porcao={product.porcao}
+            />
+          ))}
         </List>
       </div>
     </ProductsSection>

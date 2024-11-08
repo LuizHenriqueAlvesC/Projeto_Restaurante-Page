@@ -9,7 +9,7 @@ export const TagContainer = styled.div<TagProps>`
   padding: ${(props) => (props.size === 'big' ? '6px 10px' : '6px 4px')};
   margin-left: 8px; // Define a margem à esquerda
   background-color: ${colors.darkPink}; // Define a cor de fundo da tag
-  color: ${colors.pink}; // Define a cor do texto da tag
+  color: ${colors.lightGray}; // Define a cor do texto da tag
   display: inline-block; // Define o display como inline-block
   font-size: 12px; // Define o tamanho da fonte
   font-weight: bold; // Define o peso da fonte

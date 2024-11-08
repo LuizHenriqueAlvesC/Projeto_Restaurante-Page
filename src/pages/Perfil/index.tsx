@@ -7,22 +7,89 @@ import { ProductItem } from '../Home'
 import ShoppHeader from '../../components/ShoppHeader'
 import Hero from '../../components/Hero'
 
+import italiana from '../../assets/pizza.png'
+
+const produtos: ProductItem[] = [
+  {
+    id: 1,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  },
+  {
+    id: 2,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  },
+  {
+    id: 3,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  },
+  {
+    id: 4,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  },
+  {
+    id: 5,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  },
+  {
+    id: 6,
+    foto: italiana,
+    nome: 'Pizza',
+    descricao:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    porcao: 'serve de 2 a 3 pessoas',
+    preco: 98.9
+  }
+]
+
 // Componente Perfil que representa a página de perfil do restaurante
 const Perfil = () => {
-  const { id } = useParams()
-  const [foodItems, setfoodItems] = useState<ProductItem[]>([])
+  // const { id } = useParams()
+  // const [foodItems, setfoodItems] = useState<ProductItem[]>([])
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setfoodItems(res))
-  }, [id])
+  // useEffect(() => {
+  //   if (id) {
+  //     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw new Error('Network response was not ok')
+  //         }
+  //         return res.json()
+  //       })
+  //       .then((res) => setfoodItems(res))
+  //       .catch((error) => console.error('Fetch error:', error))
+  //   }
+  // }, [id])
 
   return (
     <>
       <ShoppHeader />
       <Hero />
-      <ProductsList products={foodItems} />
+      <ProductsList products={produtos} />
       <Footer />
     </>
   )

@@ -16,7 +16,7 @@ export const ProductsCard = styled.div`
   padding: 8px; // Define o espaçamento interno
   border-radius: 8px; // Define o arredondamento das bordas
   background-color: ${colors.darkPink}; // Define a cor de fundo do card
-  color: ${colors.pink}; // Define a cor do texto
+  color: ${colors.lightGray}; // Define a cor do texto
 
   img {
     display: block; // Define o display da imagem como bloco

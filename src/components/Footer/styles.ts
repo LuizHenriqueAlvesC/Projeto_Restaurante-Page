@@ -5,6 +5,7 @@ export const FooterContain = styled.div`
   margin: 0 auto;
   text-align: center;
   background-color: ${colors.lightGray};
+  color: ${colors.darkPink};
 `
 
 export const Logo = styled.img`

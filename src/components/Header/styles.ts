@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -7,6 +8,7 @@ export const Imagem = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: 900;
+  color: ${colors.darkPink};
 
   .container {
     position: relative;
