@@ -10,7 +10,6 @@ const RestaurantsList = ({ restaurants }: Props) => {
   return (
     <RestaurantsSection>
       <div className="container">
-        {/* Lista de restaurantes */}
         <List>
           {restaurants?.map((restaurant) => (
             <Restaurant
