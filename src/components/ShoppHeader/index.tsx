@@ -1,16 +1,15 @@
 // ShoppHeader.js
 import { ImagemFundo, Logo } from './styles'
-import bannerImg from '../../assets/fundo.png'
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 
 const ShoppHeader = () => (
-  <ImagemFundo style={{ backgroundImage: `url(${bannerImg})` }}>
+  <ImagemFundo>
     <div className="container">
       <Link to="/">Restaurantes</Link>
-      <div>
-        <Logo src={logo} alt="Logo" />
-      </div>
+      <Logo>
+        <img src={logo} alt="" />
+      </Logo>
       <p>0 produto(s) no carrinho</p>
     </div>
   </ImagemFundo>

@@ -4,15 +4,6 @@ import RestaurantsList from '../../components/RestaurantsList'
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
 
-export type ProductItem = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-
 // Define o tipo para o restaurante
 export type RestaurantType = {
   id: number
@@ -23,6 +14,14 @@ export type RestaurantType = {
   descricao: string
   capa: string
   cardapio: ProductItem[]
+}
+export type ProductItem = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 const Home = () => {

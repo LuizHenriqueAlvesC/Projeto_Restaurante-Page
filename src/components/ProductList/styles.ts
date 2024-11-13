@@ -21,4 +21,5 @@ export const List = styled.ul`
 
 export const ProductsSection = styled.div`
   background-color: ${colors.lightPink};
+  position: relative;
 `

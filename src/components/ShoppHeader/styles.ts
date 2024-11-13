@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import bannerImg from '../../assets/fundo.png'
 
 export const ImagemFundo = styled.div`
-  width: 100%;
   height: 186px;
   display: flex;
+  background-image: url(${bannerImg});
   background-repeat: no-repeat;
+  padding: 64px 0; // Espaçamento interno superior e inferior
   background-size: cover;
+  font-size: 18px;
   font-weight: 900;
   color: ${colors.darkPink};
 
   .container {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,4 +24,6 @@ export const ImagemFundo = styled.div`
     color: ${colors.darkPink};
   }
 `
-export const Logo = styled.img``
+export const Logo = styled.h1`
+  line-height: 0;
+`
