@@ -1,5 +1,5 @@
 // import { useDispatch } from 'react-redux' // Importa o hook useDispatch do React-Redux para despachar ações
-import close from '../../assets/close.svg'
+import closeImg from '../../assets/close.svg'
 
 import Button from '../Button' // Importa o componente Button
 
@@ -11,10 +11,13 @@ import {
   Description,
   Content,
   ModalContent,
-  Modal
+  Modal,
+  Overlay
 } from './styles' // Importa os estilos específicos do componente
 import { ProductItem } from '../../pages/Home'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { add, open, close } from '../../store/reducers/cart'
 
 // Função para obter uma descrição truncada
 const getDescription = (description: string) => {
@@ -32,9 +35,29 @@ export const formataPreco = (preco = 0) => {
 }
 
 // Componente Product que exibe as informações de um produto
-const Product = ({ foto, preco, nome, descricao, porcao }: ProductItem) => {
+const Product = ({ foto, preco, id, nome, descricao, porcao }: ProductItem) => {
   // Cria um objeto com as informações do produto selecionado
   const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const dispatch = useDispatch()
+
+  const closeCart = () => {
+    dispatch(close())
+  }
+  const addToCart = () => {
+    closeCart()
+    dispatch(
+      add({
+        foto,
+        preco,
+        nome,
+        descricao,
+        porcao,
+        id
+      })
+    )
+    dispatch(open())
+  }
 
   return (
     <>
@@ -60,7 +83,7 @@ const Product = ({ foto, preco, nome, descricao, porcao }: ProductItem) => {
           <header>
             <div>
               <img
-                src={close}
+                src={closeImg}
                 alt="ícone de fechar"
                 onClick={() => setModalIsOpen(false)}
               />
@@ -75,13 +98,14 @@ const Product = ({ foto, preco, nome, descricao, porcao }: ProductItem) => {
               <Button
                 title={'Clique aqui para adicionar este produto ao carrinho'}
                 type={'button'}
+                onClick={addToCart}
               >
                 Adicionar ao carrrinho {formataPreco(preco)}
               </Button>
             </div>
           </Content>
         </ModalContent>
-        <div className="overlay"></div>
+        <Overlay onClick={closeCart}></Overlay>
       </Modal>
     </>
   )

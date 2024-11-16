@@ -17,13 +17,11 @@ const Presentation = () => {
   }, [id])
 
   return (
-    // Container principal da apresentação do restaurante
     <PresentationContainer
-      style={{ backgroundImage: `url(${restaurant?.capa})` }} // Define a imagem de fundo do container
+      style={{ backgroundImage: `url(${restaurant?.capa})` }}
     >
       <div className="background">
         <div className="container">
-          {/* Exibe o tipo do restaurante */}
           <span>{restaurant?.tipo}</span>
           {/* Exibe o título do restaurante */}
           <Title>{restaurant?.titulo}</Title>

@@ -22,8 +22,13 @@ export const ImagemFundo = styled.div`
   a {
     text-decoration: none;
     color: ${colors.darkPink};
+    cursor: pointer;
   }
 `
 export const Logo = styled.h1`
   line-height: 0;
+`
+
+export const CartButton = styled.a`
+  display: flex;
 `

@@ -4,7 +4,7 @@ import Product from '../Product'
 import { ProductsSection, List } from './styles'
 
 export type Props = {
-  products: ProductItem[]
+  products?: ProductItem[]
 }
 
 const ProductsList = ({ products }: Props) => {
@@ -12,7 +12,7 @@ const ProductsList = ({ products }: Props) => {
     <ProductsSection>
       <div className="container">
         <List>
-          {products.map((product) => (
+          {products?.map((product) => (
             <Product
               key={product.id}
               id={product.id}
