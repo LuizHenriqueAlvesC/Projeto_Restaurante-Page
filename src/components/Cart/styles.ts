@@ -34,6 +34,14 @@ export const SideBar = styled.aside`
   width: 100%;
   z-index: 1;
   padding: 32px 8px 0 8px;
+
+  .empty-text {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: ${colors.lightGray};
+    margin-bottom: 16px;
+  }
 `
 
 export const ValueAll = styled.div`

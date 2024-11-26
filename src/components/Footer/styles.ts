@@ -23,5 +23,4 @@ export const Icon = styled.img`
 export const Description = styled.p`
   padding-top: 80px;
   padding-bottom: 40px;
-  font-size: ;
 `

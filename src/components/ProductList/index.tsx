@@ -1,13 +1,18 @@
-import { ProductItem } from '../../pages/Home'
+import Loader from '../Loader'
 import Product from '../Product'
 
 import { ProductsSection, List } from './styles'
 
 export type Props = {
   products?: ProductItem[]
+  isLoading: boolean
 }
 
-const ProductsList = ({ products }: Props) => {
+const ProductsList = ({ products, isLoading }: Props) => {
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <ProductsSection>
       <div className="container">

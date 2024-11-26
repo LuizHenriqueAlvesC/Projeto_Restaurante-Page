@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 
 import { useEffect, useState } from 'react'
-import { RestaurantType } from '../../pages/Home'
 import { PresentationContainer, Title } from './styles'
 
 // Componente Presentation que exibe a apresentação do restaurante

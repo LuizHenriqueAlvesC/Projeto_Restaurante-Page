@@ -1,6 +1,5 @@
-import { CartButton, ImagemFundo, Logo } from './styles'
+import { ImagemFundo, Logo, RestaurantLink } from './styles'
 import logo from '../../assets/logo.svg'
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
@@ -16,13 +15,15 @@ const ShoppHeader = () => {
   return (
     <ImagemFundo>
       <div className="container">
-        <Link to="/">Restaurantes</Link>
+        <RestaurantLink to="/">Restaurantes</RestaurantLink>
         <Logo>
-          <img src={logo} alt="" />
+          <h1>
+            <img src={logo} alt="" />
+          </h1>
         </Logo>
-        <CartButton onClick={openCart}>
+        <button onClick={openCart}>
           {items.length} produto(s) no carrinho
-        </CartButton>
+        </button>
       </div>
     </ImagemFundo>
   )

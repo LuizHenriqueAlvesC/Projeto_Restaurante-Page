@@ -12,7 +12,6 @@ import {
   Grade,
   Description
 } from './styles'
-import { RestaurantType } from '../../pages/Home'
 
 const Restaurant = ({
   id,

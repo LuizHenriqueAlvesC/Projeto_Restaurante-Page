@@ -22,7 +22,7 @@ export const StandardButton = styled.button`
   cursor: pointer; // Define o cursor como pointer ao passar o mouse sobre o botão
 
   &:disabled {
-    background-color: ${colors.lightGray};
+    background-color: ${colors.pink};
     cursor: not-allowed;
   }
 `

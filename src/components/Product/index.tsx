@@ -5,19 +5,9 @@ import Button from '../Button' // Importa o componente Button
 
 // import { open, add } from '../../store/reducers/modal' // Importa as ações open e add do reducer do modal
 
-import {
-  ProductsCard,
-  Title,
-  Description,
-  Content,
-  ModalContent,
-  Modal,
-  Overlay
-} from './styles' // Importa os estilos específicos do componente
-import { ProductItem } from '../../pages/Home'
-import { useState } from 'react'
+import { ProductsCard, Title, Description } from './styles' // Importa os estilos específicos do componente
 import { useDispatch } from 'react-redux'
-import { add, open, close } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/modal'
 
 // Função para obter uma descrição truncada
 const getDescription = (description: string) => {
@@ -27,36 +17,26 @@ const getDescription = (description: string) => {
   }
   return description // Retorna a descrição completa se for menor ou igual a 175 caracteres
 }
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-Br', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 
 // Componente Product que exibe as informações de um produto
 const Product = ({ foto, preco, id, nome, descricao, porcao }: ProductItem) => {
   // Cria um objeto com as informações do produto selecionado
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const selectedProduct = {
+    foto,
+    preco,
+    nome,
+    id,
+    descricao,
+    porcao
+  }
 
+  // Hook para despachar ações do Redux
   const dispatch = useDispatch()
 
-  const closeCart = () => {
-    dispatch(close())
-  }
-  const addToCart = () => {
-    closeCart()
-    dispatch(
-      add({
-        foto,
-        preco,
-        nome,
-        descricao,
-        porcao,
-        id
-      })
-    )
-    dispatch(open())
+  // Função para abrir o modal com os detalhes do produto
+  const openModal = () => {
+    dispatch(add(selectedProduct)) // Adiciona o produto selecionado ao estado do modal
+    dispatch(open()) // Abre o modal
   }
 
   return (
@@ -73,40 +53,11 @@ const Product = ({ foto, preco, id, nome, descricao, porcao }: ProductItem) => {
         <Button
           title="Clique aqui para saber mais detalhes sobre o produto"
           type="button"
-          onClick={() => setModalIsOpen(true)}
+          onClick={openModal}
         >
           Mais detalhes
         </Button>
       </ProductsCard>
-      <Modal className={modalIsOpen ? 'visivel' : ''}>
-        <ModalContent className="container">
-          <header>
-            <div>
-              <img
-                src={closeImg}
-                alt="ícone de fechar"
-                onClick={() => setModalIsOpen(false)}
-              />
-            </div>
-          </header>
-          <Content>
-            <img src={foto} alt="img" />
-            <div>
-              <h4>{nome}</h4>
-              <p>{descricao}</p>
-              <p>Serve: {porcao}</p>
-              <Button
-                title={'Clique aqui para adicionar este produto ao carrinho'}
-                type={'button'}
-                onClick={addToCart}
-              >
-                Adicionar ao carrrinho {formataPreco(preco)}
-              </Button>
-            </div>
-          </Content>
-        </ModalContent>
-        <Overlay onClick={closeCart}></Overlay>
-      </Modal>
     </>
   )
 }
