@@ -15,7 +15,7 @@ type RowProps = {
   $columnGap?: string
 }
 
-export const Title = styled.h3`
+export const Title = styled.h3<ButtonProps>`
   color: ${colors.lightGray};
   font-size: 16px;
   font-weight: bold;
@@ -59,6 +59,7 @@ export const ContainerOrder = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+    padding-bottom: 16px;
   }
 `
 

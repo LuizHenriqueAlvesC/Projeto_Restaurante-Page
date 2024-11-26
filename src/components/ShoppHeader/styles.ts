@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import bannerImg from '../../assets/fundo.png'
 import { LinkButton } from '../Button/styles'
 
@@ -40,6 +40,24 @@ export const ImagemFundo = styled.div`
   h1 {
     line-height: 0;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 24px 0; // Espaçamento interno superior e inferior reduzido
+    text-align: center; // Alinhamento centralizado do texto
+
+    .container {
+      display: flex; // Exibe os itens em linha
+      flex-direction: column; // Direção da flexbox em coluna
+      align-items: center; // Alinha os itens ao centro
+
+      img {
+        margin: 16px 0; // Espaçamento vertical para a imagem
+      }
+
+      button {
+        text-align: center; // Alinhamento centralizado do texto no botão
+      }
+    }
 `
 export const RestaurantLink = styled(LinkButton)`
   padding: 0;

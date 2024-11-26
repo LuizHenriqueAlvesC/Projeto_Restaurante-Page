@@ -158,6 +158,10 @@ const Checkout = () => {
     dispatch(open())
   }
 
+  const closeCart = () => {
+    dispatch(closeDelivery())
+  }
+
   const closeCheckout = () => {
     dispatch(cleanCart())
     dispatch(closeConfirmation())
@@ -167,7 +171,7 @@ const Checkout = () => {
     <>
       <form onSubmit={form.handleSubmit}>
         <CartContainer className={deliveryIsOpen ? 'is-open' : ''}>
-          <Overlay onClick={closeCheckout}></Overlay>
+          <Overlay onClick={closeCart}></Overlay>
           <S.AsideCheckout>
             <S.Title>Entrega</S.Title>
             {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
@@ -386,6 +390,13 @@ const Checkout = () => {
                   Esperamos que desfrute de uma deliciosa e agradável
                   experiência gastronômica. Bom apetite!
                 </p>
+                <S.ButtonCheckout
+                  title="Clique aqui para continuar com o pagamento"
+                  type="button"
+                  onClick={closeCheckout}
+                >
+                  Concluir
+                </S.ButtonCheckout>
               </>
             ) : (
               <Loader />
