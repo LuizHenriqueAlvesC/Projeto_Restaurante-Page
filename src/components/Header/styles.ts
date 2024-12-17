@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -14,6 +14,9 @@ export const Imagem = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 80%;
+    }
   }
 `
 
@@ -22,6 +25,13 @@ export const Titulo = styled.h2`
   width: 540px;
   text-align: center;
   padding-top: 138px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
 `
 
 export const Logo = styled.img`
